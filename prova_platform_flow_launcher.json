@@ -1,0 +1,1313 @@
+{
+  "default_showing": ["customer360"],
+  "default_path": "customer360",
+  "apiCacheTimeout": 60000,
+  "apiRootPayload": "/{provider}/{provider_version}/api/{model}",
+  "endpointConfiguration": {
+    "default": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "res.partner"
+    },
+    "getContact": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "res.partner"
+    },
+    "getAddress": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "ir.model"
+    },
+    "getContactStatus": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "res.partner"
+    },
+    "getContactContacts": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "res.partner"
+    },
+    "getInteractions": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "bsp.case.interaction"
+    },
+    "getInteractionStatuses": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "bsp.case.interaction"
+    },
+    "getCases": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "bsp.case"
+    },
+    "getCaseStages": {
+      "provider": "rip",
+      "provider_version": "v3",
+      "model": "bsp.case"
+    }
+  },
+  "tabs": {
+    "customer360": {
+      "label": "Customer360",
+      "icon": "business",
+      "deletable": false,
+      "rows": [
+        {
+          "class": "mt-4",
+          "boxes": [
+            {
+              "tag": "b2w-customer-360-box",
+              "class": "col-md-8 col-xs-12",
+              "customStyle": "",
+              "height": "270px",
+              "options": {
+                "contained_widgets": {
+                  "static": [
+                    {
+                      "tag": "b2w-customer-360-anagraphic",
+                      "text": "Anagraphic"
+                    }
+                  ],
+                  "default_selected": "b2w-customer-360-anagraphic"
+                }
+              },
+              "widgets": [
+                {
+                  "name": "Customer 360 Anagraphic",
+                  "tag": "b2w-customer-360-anagraphic",
+                  "customStyle": "",
+                  "options": {
+                    "dataFrame": {
+                      "copy_enabled": true,
+                      "infos": {
+                        "tagbox_payload": {
+                          "userType": {
+                            "function": "\n                                                        let result = undefined;\n                                                        if (user.company_type === \"person\"){\n                                                            result = [{label:'tags.consumer', icon: 'home'}]\n                                                        } else {\n                                                            result = [{label: 'tags.business', icon: 'business'}]\n                                                        }\n                                                        return result\n                                                        "
+                          }
+                        },
+                        "tagbox_secondary_payload": {},
+                        "infos_payload": {
+                          "reference_field_function": "\n                                                    let result = undefined;\n                                                    if (user.company_type === \"person\"){\n                                                        result = 'person'\n                                                    } else {\n                                                        result = 'company'\n                                                    }\n                                                    return result\n                                                    ",
+                          "values": {
+                            "person": {
+                              "icon": "home",
+                              "rows": [
+                                [
+                                  {
+                                    "key": "user_sequence",
+                                    "label": "fields.user_sequence"
+                                  },
+                                  {
+                                    "key": "fiscal_code",
+                                    "label": "fields.vat"
+                                  },
+                                  {
+                                    "key": "acquisition_channel",
+                                    "label": "fields.acquisition_channel"
+                                  },
+                                  {
+                                    "key": "business_type",
+                                    "label": "fields.business_type"
+                                  },
+                                  {
+                                    "key": "activation_type",
+                                    "label": "fields.activation_type"
+                                  },
+                                  {
+                                    "key": "activation_date",
+                                    "label": "fields.activation_date",
+                                    "format": "date"
+                                  }
+                                ],
+                                [
+                                  {
+                                    "key": "email",
+                                    "label": "fields.email"
+                                  },
+                                  {
+                                    "key": "bsp_email_pec",
+                                    "label": "fields.pec_email"
+                                  },
+                                  {
+                                    "key": "phone",
+                                    "label": "fields.phone"
+                                  },
+                                  {
+                                    "key": "mobile",
+                                    "label": "fields.mobile"
+                                  },
+                                  {
+                                    "key": "website",
+                                    "label": "fields.website"
+                                  },
+                                  {}
+                                ]
+                              ]
+                            },
+                            "company": {
+                              "icon": "home",
+                              "rows": [
+                                [
+                                  {
+                                    "key": "user_sequence",
+                                    "label": "fields.user_sequence"
+                                  },
+                                  {
+                                    "key": "vat",
+                                    "label": "fields.vat"
+                                  },
+                                  {
+                                    "key": "acquisition_channel",
+                                    "label": "fields.acquisition_channel"
+                                  },
+                                  {
+                                    "key": "business_type",
+                                    "label": "fields.business_type"
+                                  },
+                                  {
+                                    "key": "activation_type",
+                                    "label": "fields.activation_type"
+                                  },
+                                  {
+                                    "key": "activation_date",
+                                    "label": "fields.activation_date",
+                                    "format": "date"
+                                  }
+                                ],
+                                [
+                                  {
+                                    "key": "email",
+                                    "label": "fields.email"
+                                  },
+                                  {
+                                    "key": "bsp_email_pec",
+                                    "label": "fields.pec_email"
+                                  },
+                                  {
+                                    "key": "phone",
+                                    "label": "fields.phone"
+                                  },
+                                  {
+                                    "key": "mobile",
+                                    "label": "fields.mobile"
+                                  },
+                                  {
+                                    "key": "website",
+                                    "label": "fields.website"
+                                  },
+                                  {}
+                                ]
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "b2w-customer-360-box",
+              "class": "col-md-4 col-xs-12",
+              "customStyle": "",
+              "height": "270px",
+              "options": {
+                "contained_widgets": {
+                  "static": [
+                    {
+                      "tag": "b2w-customer-360-elastic-renderer",
+                      "id": "FlowLauncher",
+                      "text": "Flow Launcher"
+                    }
+                  ],
+                  "default_selected": "FlowLauncher"
+                }
+              },
+              "widgets": [
+                {
+                  "name": "Flow Launcher",
+                  "id": "FlowLauncher",
+                  "tag": "b2w-customer-360-elastic-renderer",
+                  "customStyle": "",
+                  "options": {
+                    "dataFrame": {
+                      "widgets": [
+                        {
+                          "events": [],
+                          "tag": "process-builder-launcher",
+                          "args": {
+                            "w_id": "flowLauncher",
+                            "backend-url": "https://internal-dev-01.bit2win.cloud/api/processbuilder/v1",
+                            "labelfavorite": "Show Only Favorite",
+                            "auto-start-process": true,
+                            "processes": "\n                                                        [\n                                                            {\n                                                                \"process_name\":\"BSP_client\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false,\n                                                                \"id\":\"13\",\n                                                                \"model\":\"res.partner\",\n                                                                \"provider\":\"ODOO\"\n                                                            },\n                                                            {\n                                                                \"process_name\":\"BSP_contact\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"BSP_modify_client\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"BSP_modify_contact\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"NewContract\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"NewOrder\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"BSP_sales_funnel\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false,\n                                                                \"id\":\"13\",\n                                                                \"model\":\"res.partner\",\n                                                                \"provider\":\"ODOO\"\n                                                            }\n                                                        ]\n                                                        ",
+                            "language": "en-US",
+                            "class": "hydrated"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "",
+          "boxes": [
+            {
+              "tag": "b2w-customer-360-box",
+              "class": "col-md-12 col-xs-12",
+              "customStyle": "",
+              "height": "980px",
+              "options": {
+                "contained_widgets": {
+                  "static": [
+                    {
+                      "tag": "b2w-customer-360-elastic-renderer",
+                      "id": "Anagrafica",
+                      "text": "Anagrafica"
+                    },
+                    {
+                      "tag": "b2w-customer-360-details-contacts",
+                      "text": "Contatti"
+                    },
+                    {
+                      "tag": "b2w-customer-360-details-privacy",
+                      "text": "Privacy"
+                    },
+                    {
+                      "tag": "b2w-customer-360-details-interactions",
+                      "text": "Interactions"
+                    },
+                    {
+                      "tag": "b2w-customer-360-details-case",
+                      "text": "Cases"
+                    },
+                    {
+                      "tag": "b2w-customer-360-elastic-renderer",
+                      "text": "Servizi",
+                      "id": "Servizi"
+                    }
+                  ],
+                  "default_selected": "Anagrafica"
+                }
+              },
+              "widgets": [
+                {
+                  "name": "Customer 360 Details Contatti",
+                  "tag": "b2w-customer-360-details-contacts",
+                  "customStyle": "",
+                  "options": {
+                    "dataFrame": {
+                      "infos_payload": {
+                        "reference_field_function": "return user.is_company?\"company\":\"individual\"",
+                        "values": {
+                          "company": [
+                            {
+                              "key": "email",
+                              "label": "fields.email",
+                              "path": "email"
+                            },
+                            {
+                              "key": "mobile",
+                              "label": "fields.mobile"
+                            }
+                          ],
+                          "individual": [
+                            {
+                              "key": "email",
+                              "label": "fields.email"
+                            },
+                            {
+                              "key": "mobile",
+                              "label": "fields.mobile"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Customer 360 Details Privacy",
+                  "tag": "b2w-customer-360-details-privacy",
+                  "customStyle": "",
+                  "options": {
+                    "dataFrame": {}
+                  }
+                },
+                {
+                  "name": "Customer 360 Details Interactions",
+                  "tag": "b2w-customer-360-details-interactions",
+                  "customStyle": "",
+                  "options": {
+                    "dataFrame": {
+                      "additionalStageIcons": {},
+                      "type": "utilities",
+                      "highlightStatuses": ["30-done"],
+                      "reference_field_function": "if (user.is_company) {return \"company\";} else {return \"individual\"}",
+                      "filter": {
+                        "payload": [
+                          {
+                            "key": "state",
+                            "text": "filter.state",
+                            "options": "state"
+                          }
+                        ],
+                        "sortingPayload": {
+                          "text": "filter.sorting.label",
+                          "data": [
+                            {
+                              "field": "create_date",
+                              "textDesc": "filter.sorting.create_date.desc"
+                            }
+                          ]
+                        }
+                      },
+                      "table": {
+                        "columns": [
+                          {
+                            "type": "field",
+                            "value": "id",
+                            "hidden": true
+                          },
+                          {
+                            "label": "table.type",
+                            "type": "field",
+                            "value": "type",
+                            "flex": "1",
+                            "bold": true
+                          },
+                          {
+                            "label": "table.user_id",
+                            "type": "field",
+                            "value": "user_id",
+                            "flex": "1"
+                          },
+                          {
+                            "label": "table.channel",
+                            "type": "field",
+                            "value": "channel",
+                            "flex": "1"
+                          },
+                          {
+                            "label": "table.create_date",
+                            "type": "field",
+                            "value": "create_date",
+                            "format": "date",
+                            "flex": "1"
+                          },
+                          {
+                            "label": "table.close_date",
+                            "type": "field",
+                            "value": "close_date",
+                            "format": "date",
+                            "flex": "1"
+                          },
+                          {
+                            "label": "table.state",
+                            "type": "field",
+                            "value": "state",
+                            "format": "status",
+                            "flex": "1",
+                            "bold": true
+                          },
+                          {
+                            "label": "table.cases",
+                            "type": "field",
+                            "value": "cases",
+                            "flex": "0.5",
+                            "bold": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Customer 360 Details Case",
+                  "tag": "b2w-customer-360-details-case",
+                  "customStyle": "",
+                  "options": {
+                    "dataFrame": {
+                      "type": "utilities",
+                      "reference_field_function": "if (user.is_company) {return \"company\";} else {return \"individual\"}",
+                      "filter": {
+                        "payload": [
+                          {
+                            "key": "stage_id",
+                            "text": "filter.stage_id",
+                            "options": "stage_id"
+                          },
+                          {
+                            "key": "triplet_active_phase_id",
+                            "text": "filter.active_phase",
+                            "options": "active_phase"
+                          }
+                        ],
+                        "sortingPayload": {
+                          "text": "filter.sorting.label",
+                          "data": [
+                            {
+                              "field": "create_date",
+                              "textDesc": "filter.sorting.create_date.desc"
+                            }
+                          ]
+                        }
+                      },
+                      "cards": {
+                        "individual": {
+                          "cardId": {
+                            "type": "field",
+                            "value": "display_name"
+                          },
+                          "cardName": {
+                            "type": "field",
+                            "value": "ticket_type_name"
+                          },
+                          "headerPayload": [
+                            {
+                              "type": "field",
+                              "label": "cards.assigned",
+                              "value": "user_id",
+                              "format": "tag"
+                            },
+                            {
+                              "type": "field",
+                              "label": "cards.assign_date",
+                              "value": "assign_date",
+                              "format": "tag",
+                              "subFormat": "date"
+                            }
+                          ],
+                          "bodyPayload": {
+                            "sections": [
+                              {
+                                "class": "col-md-8",
+                                "data": [
+                                  {
+                                    "type": "field",
+                                    "label": "cards.type",
+                                    "value": "triplet_type_name"
+                                  },
+                                  {
+                                    "type": "field",
+                                    "label": "cards.subtype",
+                                    "value": "triplet_subtype_name"
+                                  },
+                                  {
+                                    "type": "field",
+                                    "label": "cards.detail",
+                                    "value": "ticket_type_name"
+                                  }
+                                ]
+                              },
+                              {
+                                "class": "col-md-4",
+                                "data": [
+                                  {
+                                    "type": "field",
+                                    "label": "cards.create_date",
+                                    "value": "create_date",
+                                    "subFormat": "date"
+                                  },
+                                  {
+                                    "type": "field",
+                                    "label": "cards.write_date",
+                                    "value": "write_date",
+                                    "subFormat": "date"
+                                  },
+                                  {
+                                    "type": "field",
+                                    "label": "cards.close_date",
+                                    "value": "close_date",
+                                    "subFormat": "date"
+                                  }
+                                ]
+                              },
+                              {
+                                "class": "col-md-12",
+                                "condition": "if (_case.symple_interaction?.type && _case.symple_interaction?.partner_id && _case.symple_interaction?.channel) \n                                                                                {return true;} \n                                                                            else \n                                                                                {return false;}",
+                                "data": [
+                                  {
+                                    "type": "tagbox",
+                                    "label": "cards.interaction",
+                                    "format": "tagbox",
+                                    "value": [
+                                      {
+                                        "type": "field",
+                                        "value": "symple_interaction.type"
+                                      },
+                                      {
+                                        "type": "field",
+                                        "label": "cards.partner_id",
+                                        "value": "symple_interaction.partner_id"
+                                      },
+                                      {
+                                        "type": "field",
+                                        "label": "cards.channel",
+                                        "value": "symple_interaction.channel"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "description": {
+                            "type": "field",
+                            "value": "description"
+                          },
+                          "phases_field": "phase_history",
+                          "end_statuses": ["Lavorato", "Chiuso", "Done"]
+                        },
+                        "company": {
+                          "cardId": {
+                            "type": "field",
+                            "value": "display_name"
+                          },
+                          "cardName": {
+                            "type": "field",
+                            "value": "ticket_type_name"
+                          },
+                          "headerPayload": [
+                            {
+                              "type": "field",
+                              "label": "cards.assigned",
+                              "value": "user_id",
+                              "format": "tag"
+                            },
+                            {
+                              "type": "field",
+                              "label": "cards.assign_date",
+                              "value": "assign_date",
+                              "format": "tag",
+                              "subFormat": "date"
+                            }
+                          ],
+                          "bodyPayload": {
+                            "sections": [
+                              {
+                                "class": "col-md-8",
+                                "data": [
+                                  {
+                                    "type": "field",
+                                    "label": "cards.type",
+                                    "value": "triplet_type_name"
+                                  },
+                                  {
+                                    "type": "field",
+                                    "label": "cards.subtype",
+                                    "value": "triplet_subtype_name"
+                                  },
+                                  {
+                                    "type": "field",
+                                    "label": "cards.detail",
+                                    "value": "ticket_type_name"
+                                  }
+                                ]
+                              },
+                              {
+                                "class": "col-md-4",
+                                "data": [
+                                  {
+                                    "type": "field",
+                                    "label": "cards.create_date",
+                                    "value": "create_date",
+                                    "subFormat": "date"
+                                  },
+                                  {
+                                    "type": "field",
+                                    "label": "cards.write_date",
+                                    "value": "write_date",
+                                    "subFormat": "date"
+                                  },
+                                  {
+                                    "type": "field",
+                                    "label": "cards.close_date",
+                                    "value": "close_date",
+                                    "subFormat": "date"
+                                  }
+                                ]
+                              },
+                              {
+                                "class": "col-md-12",
+                                "condition": "if (_case.symple_interaction?.type && _case.symple_interaction?.partner_id && _case.symple_interaction?.channel) \n                                                                {return true;} \n                                                            else \n                                                                {return false;}",
+                                "data": [
+                                  {
+                                    "type": "tagbox",
+                                    "label": "cards.interaction",
+                                    "format": "tagbox",
+                                    "value": [
+                                      {
+                                        "type": "field",
+                                        "value": "symple_interaction.type"
+                                      },
+                                      {
+                                        "type": "field",
+                                        "label": "cards.partner_id",
+                                        "value": "symple_interaction.partner_id"
+                                      },
+                                      {
+                                        "type": "field",
+                                        "label": "cards.channel",
+                                        "value": "symple_interaction.channel"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "description": {
+                            "type": "field",
+                            "value": "description"
+                          },
+                          "phases_field": "phase_history",
+                          "end_statuses": ["Lavorato", "Chiuso", "Done"]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Elastic-Anagrafica",
+                  "id": "Anagrafica",
+                  "tag": "b2w-customer-360-elastic-renderer",
+                  "customStyle": "",
+                  "options": {
+                    "dataFrame": {
+                      "widgets": [
+                        {
+                          "events": [],
+                          "tag": "b2w-customer-360-details-registry",
+                          "args": {
+                            "w_id": "registry",
+                            "options": {
+                              "dataFrame": {
+                                "infos_payload": {
+                                  "reference_field_function": "return user.company_type === 'company'?\"company\":\"person\"",
+                                  "extra_fields_function": "return []",
+                                  "values": {
+                                    "company": {
+                                      "icon": "business",
+                                      "rows": [
+                                        [
+                                          {
+                                            "key": "business_name",
+                                            "label": "fields.business_name",
+                                            "type": "function",
+                                            "value": "\n                                                                                            return user.name\n                                                                                        "
+                                          },
+                                          {
+                                            "key": "country",
+                                            "label": "fields.country"
+                                          },
+                                          {
+                                            "key": "sede_legale",
+                                            "label": "fields.sede_legale",
+                                            "type": "function",
+                                            "value": "return user.parent_id === user.id && user.address_type === \"legal\"?\"SI\":\"NO\""
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "fiscal_code",
+                                            "label": "fields.fiscal_code"
+                                          },
+                                          {
+                                            "key": "phone",
+                                            "label": "fields.phone"
+                                          },
+                                          {
+                                            "key": "mobile",
+                                            "label": "fields.mobile"
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "email",
+                                            "label": "fields.email"
+                                          },
+                                          {
+                                            "key": "pec_email",
+                                            "label": "fields.pec_email"
+                                          },
+                                          {
+                                            "key": "activation_date",
+                                            "label": "fields.activation_date",
+                                            "format": "date"
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "create_date",
+                                            "label": "fields.create_date",
+                                            "format": "date"
+                                          },
+                                          {
+                                            "key": "status",
+                                            "label": "fields.status"
+                                          },
+                                          {
+                                            "key": "severity_index",
+                                            "label": "fields.severity_index",
+                                            "type": "map",
+                                            "value": {
+                                              "no_risk": "fields.no_risk"
+                                            }
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "category",
+                                            "label": "fields.category"
+                                          },
+                                          {
+                                            "key": "user_sequence",
+                                            "label": "fields.user_sequence"
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "bsp_it_ateco_id",
+                                            "label": "fields.ateco_category_ids"
+                                          },
+                                          {
+                                            "key": "vat",
+                                            "label": "fields.vat"
+                                          },
+                                          {
+                                            "key": "pec_email_infocamere",
+                                            "label": "fields.pec_email_infocamere"
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "pa_pec_email",
+                                            "label": "fields.pa_pec_email"
+                                          },
+                                          {},
+                                          {
+                                            "key": "insurance_service",
+                                            "label": "fields.insurance_service"
+                                          }
+                                        ]
+                                      ]
+                                    },
+                                    "person": {
+                                      "icon": "home",
+                                      "rows": [
+                                        [
+                                          {
+                                            "key": "name",
+                                            "label": "fields.name"
+                                          },
+                                          {
+                                            "key": "country",
+                                            "label": "fields.country_individual"
+                                          },
+                                          {
+                                            "key": "sede_legale",
+                                            "label": "fields.sede_legale_individual",
+                                            "type": "function",
+                                            "value": "return user.parent_id === user.id && user.address_type === \"legal\"?\"SI\":\"NO\""
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "fiscal_code",
+                                            "label": "fields.fiscal_code"
+                                          },
+                                          {
+                                            "key": "phone",
+                                            "label": "fields.phone"
+                                          },
+                                          {
+                                            "key": "mobile",
+                                            "label": "fields.mobile"
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "email",
+                                            "label": "fields.email"
+                                          },
+                                          {
+                                            "key": "pec_email",
+                                            "label": "fields.pec_email"
+                                          },
+                                          {
+                                            "key": "activation_date",
+                                            "label": "fields.activation_date",
+                                            "format": "date"
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "create_date",
+                                            "label": "fields.create_date",
+                                            "format": "date"
+                                          },
+                                          {
+                                            "key": "status",
+                                            "label": "fields.status"
+                                          },
+                                          {
+                                            "key": "severity_index",
+                                            "label": "fields.severity_index",
+                                            "type": "map",
+                                            "value": {
+                                              "no_risk": "fields.no_risk"
+                                            }
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "category",
+                                            "label": "fields.category"
+                                          },
+                                          {
+                                            "key": "user_sequence",
+                                            "label": "fields.user_sequence"
+                                          }
+                                        ],
+                                        [
+                                          {
+                                            "key": "birth_date",
+                                            "label": "fields.birth_date",
+                                            "format": "date"
+                                          },
+                                          {},
+                                          {
+                                            "key": "insurance_service",
+                                            "label": "fields.insurance_service"
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  },
+                                  "extra_values": {}
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "events": [],
+                          "tag": "b2w-customer-360-card-table",
+                          "args": {
+                            "w_id": "Address",
+                            "options": {
+                              "dataFrame": {
+                                "label": "Address.label",
+                                "api": [
+                                  {
+                                    "endpointConfigurationKey": "getAddress",
+                                    "label": "Address",
+                                    "id": "Address",
+                                    "method": "POST",
+                                    "url": "/generic_external_source",
+                                    "parameters": [
+                                      {
+                                        "key": "function_name",
+                                        "value": "get_address_from_partner"
+                                      },
+                                      {
+                                        "key": "method",
+                                        "value": "GET"
+                                      }
+                                    ],
+                                    "body": [
+                                      {
+                                        "key": "partner_id",
+                                        "value": "return userId",
+                                        "type": "function"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "cardSettings": {
+                                  "hideHover": {
+                                    "value": true
+                                  },
+                                  "customStyle": {
+                                    "value": ".card-name-box"
+                                  },
+                                  "complexCard": {
+                                    "value": true
+                                  },
+                                  "textPayload": {
+                                    "value": "\n                                                                                          return JSON.stringify([\n                                                                                              {\n                                                                                                  text: entry.bsp_name\n                                                                                              },\n                                                      \n                                                                                      ])",
+                                    "type": "function"
+                                  },
+                                  "name": {
+                                    "value": "return entry.bsp_type_value",
+                                    "type": "function"
+                                  },
+                                  "subName": {
+                                    "value": "return entry.bsp_country ? entry.bsp_country.toUpperCase() : '​'",
+                                    "type": "function"
+                                  }
+                                },
+                                "postProcessing": "\n                                                                                  value['Address'].forEach(c => {entries.push({...c, 'abbello' : 'ma no'})})\n                                                                                  "
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "name": "Elastic",
+                  "tag": "b2w-customer-360-elastic-renderer",
+                  "id": "Servizi",
+                  "customStyle": "",
+                  "options": {
+                    "dataFrame": {
+                      "widgets": [
+                        {
+                          "events": ["tabClicked"],
+                          "tag": "b2w-customer-360-api-elastic",
+                          "args": {
+                            "w_id": "filter_tabs",
+                            "options": {
+                              "dataFrame": {
+                                "api": [
+                                  {
+                                    "endpointConfigurationKey": "default",
+                                    "label": "Assets",
+                                    "id": "Assets",
+                                    "url": "/asset_distinct",
+                                    "method": "GET",
+                                    "parameters": [
+                                      {
+                                        "key": "account_code",
+                                        "value": "return userId",
+                                        "type": "function"
+                                      },
+                                      {
+                                        "key": "distinct_fields",
+                                        "value": "commodity&assetstatus"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "mappings": [
+                                  {
+                                    "class": "col-md-12",
+                                    "style": {},
+                                    "tag": "b2w-customer-360-filter-tabs",
+                                    "fields": [
+                                      {
+                                        "key": "tab_mappings",
+                                        "value": "\n                                                                                \n                                                                                const result = {\n                                                                                    \n                                                                                    power: { name: translation.get('elastic-services.filter.tabs.commodity.power'), icon: 'light', color: '#ff9227' },\n \n                                                                                    gas: { name: translation.get('elastic-services.filter.tabs.commodity.gas'), icon: 'gas', color: '#d91936' },\n \n                                                                                    pdr: { name: translation.get('elastic-services.filter.tabs.commodity.pdr'), icon: 'gas', color: '#d91936' },\n \n                                                                                    fiber: { name: translation.get('elastic-services.filter.tabs.commodity.fiber'), icon: 'wifi', color: '#84a5d6' },\n                                                                                    \n                                                                                    //emobility: { name: translation.get('elastic-services.filter.tabs.commodity.emob'), icon: 'rule', color: '#007cff' },\n                                                                                \n                                                                                    };\n                                                                                \n                                                                                    Object.keys(processed.resultingCommodities).forEach(c => {\n                                                                                    \n                                                                                        let total = 0;\n                                                                                    \n                                                                                        let numActive = processed.resultingCommodities[c].numActive\n                                                                                    \n                                                                                        processed.resultingCommodities[c].response.forEach(c => (total += c.count));\n                                                                                    \n                                                                                        const numNonActive = total - numActive;\n\n                                                                                        console.log(\"setTopText\", result, c)                                                                                    \n                                                                                        result[c]['topText'] = translation.get('elastic-services.filter.tabs.top-text', {nCommodities: numActive})\n                                                                                    \n                                                                                        result[c]['bottomText'] = translation.get('elastic-services.filter.tabs.bottom-text', {nCommodities:numNonActive});\n                                                                                    \n                                                                                        result[c]['topTextStyle'] = {};\n                                                                                    \n                                                                                        result[c]['bottomTextStyle'] = {};\n                                                                                \n                                                                                    });\n                                                                                \n                                                                                    \n                                                                                \n                                                                                    return result;\n                                                                                \n                                                                                    ",
+                                        "type": "function"
+                                      },
+                                      {
+                                        "key": "tabPath",
+                                        "type": "function",
+                                        "value": "\n                                                                                    \n                                                                                let result = Object.keys(processed.resultingCommodities)[0];\n                                                                                    \n                                                                                Object.keys(processed.resultingCommodities).every(c => {\n                                                                                        \n                                                                                    if (processed.resultingCommodities.numActive > 0) {\n                                                                                            \n                                                                                        result = c;\n                                                                                            \n                                                                                        return false;\n                                                                                        \n                                                                                    }\n                                                                                    \n                                                                                })\n                                                                                    \n                                                                                return result;\n                                                                                \n                                                                                "
+                                      }
+                                    ],
+                                    "postProcessing": "\n                                                                        \n                                                                        const activeMap = {\n                                                                            \n                                                                            power: { key: 'assetstatus', values: ['Active'] },\n  \n                                                                            gas: { key: 'assetstatus', values: ['Active'] },\n                                                                          \n                                                                            pdr: { key: 'assetstatus', values: ['Active'] },\n                                                                 \n                                                                            fiber: { key: 'assetstatus', values: ['Active'] },\n                                                                            \n                                                                            emobility: { key: 'stato', values: ['Attivo', 'In Corso'] },\n                                                                        \n                                                                        };\n                                                                    \n                                                                        let resultingCommodities = {};\n                                                          \n                                                                        Object.keys(value).forEach(source => {\n                                                                            \n                                                                            value[source].forEach(commodity => {\n                                                                                \n                                                                        //initialize the storage if it doesn't exist\n                                                                                \n                                                                                if (resultingCommodities[commodity.commodity] === undefined) resultingCommodities[commodity.commodity] = {};\n                                                                                \n                                                                        //aggregate the commodities\n                                                                               \n                                                                                resultingCommodities[commodity.commodity]['response'] =\n                                                                                   \n                                                                                resultingCommodities[commodity.commodity]['response'] === undefined ? [commodity] : [...resultingCommodities[commodity.commodity]['response'], commodity];\n                                                                            \n                                                                            });\n                                                                        \n                                                                        });\n\n                                                                        \n                                                                        Object.keys(resultingCommodities).forEach(c => {\n                        \n                                                                            resultingCommodities[c]['response'].forEach(_commodity => {\n                                                                           \n                                                                                \n                                                                            if (activeMap[c].values.includes(_commodity[activeMap[c].key])) {\n                                                                                 \n                                                                                resultingCommodities[c]['numActive'] = (resultingCommodities[c]['numActive'] || 0) + _commodity.count;\n                                                                                \n                                                                            }\n                                                                            \n                                                                            });\n                                                                        \n                                                                        });\n                                                                        \n                                                                        processed['resultingCommodities'] = resultingCommodities;\n                                                              "
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "events": ["filterEvent"],
+                          "tag": "b2w-customer-360-api-elastic",
+                          "args": {
+                            "w_id": "filter_api",
+                            "refresh": {
+                              "track": true,
+                              "key": "filter_refresh",
+                              "initial": false
+                            },
+                            "options": {
+                              "dataFrame": {
+                                "api": {
+                                  "track": true,
+                                  "key": "filter_api",
+                                  "initial": []
+                                },
+                                "mappings": [
+                                  {
+                                    "class": "col-md-12",
+                                    "style": {},
+                                    "tag": "b2w-customer-360-filter",
+                                    "fields": [
+                                      {
+                                        "key": "w_id",
+                                        "value": "filter",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "key": "filterPayload",
+                                        "type": "function",
+                                        "value": "\n                                                                                    \n                                                                                let result = []\n \n                                                                                console.log('filter value', value)                                                                                   \n                                                                                Object.keys(value).forEach(source => {\n                                                                                        \n                                                                                    let option = {}\n                                                                                        \n                                                                                    /*they are all the same anyway per source*/\n                                                                                        \n                                                                                    option[\"key\"] = value[source][0].key\n                                                                                        \n                                                                                    option[\"text\"] = translation.get('elastic-services.filter.fields.' + (value[source][0].key === 'assetstatus'?'status':'paymentmethod'))\n                                                                                        \n                                                                                    option[\"options\"] = value[source].map(option => {\n                                                                                            \n                                                                                        return {value:option.key === 'assetstatus'?option.assetstatus:option.mainmoptype, text:option.key === 'assetstatus'?option.assetstatus:option.mainmoptypelabel}\n                                                                                        \n                                                                                    })\n                                                                                        \n                                                                                    result.push(option)\n                                                                                    \n                                                                                })\n\n                                                                                console.log(\"filter result\",result)                                                                                    \n                                                                                return result;\n                                                                                \n                                                                                "
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "events": [],
+                          "tag": "b2w-c360-card-holder-table-columns",
+                          "args": {
+                            "columns_payload": {
+                              "track": true,
+                              "key": "columns_payload",
+                              "initial": []
+                            }
+                          }
+                        },
+                        {
+                          "events": [],
+                          "tag": "b2w-customer-360-api-elastic",
+                          "args": {
+                            "refresh": {
+                              "track": true,
+                              "key": "table_refresh",
+                              "initial": false
+                            },
+                            "options": {
+                              "dataFrame": {
+                                "api": {
+                                  "track": true,
+                                  "key": "table_api",
+                                  "initial": []
+                                },
+                                "mappings": [
+                                  {
+                                    "class": "col-md-12",
+                                    "style": {},
+                                    "conditionalRendering": "\n                                                                            \n                                                                            if (processed['resultingCommodities'][Object.keys(processed['resultingCommodities'])[0]]){\n                                                                                \n                                                                            return processed['resultingCommodities'][Object.keys(processed['resultingCommodities'])[0]].response.map(c => {\n                                                                                    \n                                                                            let columns_payload=[\n                                                                                        \n                                                                            {\n                                                                                            \n                                                                            icon: processed.service_mappings[c.commodity].icon,\n                                                                                            \n                                                                            flex: '0.1',\n                                                                                            \n                                                                            class: 'Icon',\n                                                                                            \n                                                                            iconStyle: { fontWeight: '600', color: processed.service_mappings[c.commodity].inactives.includes(c.assetstatus)? '#afb4bf' : '' }                                                                                        },                                                                                        {                                                                                            class: 'Service',                                                                                            flex: '0.3',                                                                                            text: translation.get('elastic-services.table.names.'+c.commodity),\n                                                                                            headerStyle: { fontWeight: '600', color: processed.service_mappings[c.commodity].inactives.includes(c.assetstatus)? '#afb4bf' : '' },\n                                                                                        },\n                                                                                        {\n                                                                                            class: 'POD',\n                                                                                            flex: '0.3',\n                                                                                            text: c.podcode || c.pdrcode,\n                                                                                            headerStyle: { fontWeight: '600', color: processed.service_mappings[c.commodity].inactives.includes(c.assetstatus)? '#afb4bf' : '' },\n                                                                                        },\n                                                                                        { class: 'Address', flex: '1', text: c.address },\n                                                                                        {\n                                                                                            class: 'Status',\n                                                                                            icon: processed['status_map'][c.assetstatus].icon || '',\n                                                                                            iconStyle: { color: processed['status_map'][c.assetstatus].color || '' },\n                                                                                            headerStyle: {\n                                                                                                color: (c.assetstatus === 'Active' || c.assetstatus === 'Attivo') && processed['status_map'][c.assetstatus].color,\n                                                                                                fontWeight: '600',\n                                                                                            },\n                                                                                            text: c.assetstatus || '',\n                                                                                            gap: '10px',\n                                                                                            flex: '0.3',\n                                                                                        },\n                                                                                    ]\n                                                                                    let body = [\n                                                                                        {\n                                                                                            name: translation.get('elastic-services.table.podcode'),\n                                                                                            description: c.podcode || c.pdrcode || translation.get('notavalue'),\n                                                                                            width: 4,\n                                                                                            maxLength: 9 * 4,\n                                                                                        },\n                                                                                        { name: translation.get('elastic-services.table.prcode'), description: c.prcode || translation.get('notavalue'), width: 4, maxLength: 9 * 4 },\n                                                                                        {\n                                                                                            name: translation.get('elastic-services.table.activationDate'),\n                                                                                            description: c.activationdate ? DateTime.fromISO(c.activationdate).toFormat(translation.get('date_format')) : translation.get('notavalue'),\n                                                                                            width: 4,\n                                                                                            maxLength: 9 * 4,\n                                                                                        },\n                                                                                        {\n                                                                                            name: translation.get('elastic-services.table.endDate'),\n                                                                                            description: c.enddate ? DateTime.fromISO(c.enddate).toFormat(translation.get('date_format')) : translation.get('notavalue'),\n                                                                                            width: 4,\n                                                                                            maxLength: 9 * 4,\n                                                                                        },\n                                                                                        {\n                                                                                            name: translation.get('elastic-services.table.contractName'),\n                                                                                            description: c.contractname || translation.get('notavalue'),\n                                                                                            width: 4,\n                                                                                            maxLength: 9 * 4,\n                                                                                        },\n                                                                                        { name: translation.get('elastic-services.table.agreementDate'), description: translation.get('notavalue'), width: 4, maxLength: 9 * 4 },\n                                                                                        { name: translation.get('elastic-services.table.ccq'), description: translation.get('notavalue'), width: 4, maxLength: 9 * 4 },\n                                                                                        {\n                                                                                            name: translation.get('elastic-services.table.prodName'),\n                                                                                            description: c.prodname || translation.get('notavalue'),\n                                                                                            width: 4,\n                                                                                            maxLength: 9 * 4,\n                                                                                        },\n                                                                                        { name: translation.get('elastic-services.table.category'), description: translation.get('notavalue'), width: 4, maxLength: 9 * 4 },\n                                                                                        {\n                                                                                            name: translation.get('elastic-services.table.paymentMethod'),\n                                                                                            description: c.mainmoptypelabel|| translation.get('notavalue'),\n                                                                                            width: 4,\n                                                                                            maxLength: 9 * 4,\n                                                                                        },\n                                                                                        { name: translation.get('elastic-services.table.nRepricing'), description: translation.get('notavalue'), width: 4, maxLength: 9 * 4 },\n                                                                                        { name: translation.get('elastic-services.table.conditionEndDate'), description: translation.get('notavalue'), width: 4, maxLength: 9 * 4 },\n                                                                                        { name: translation.get('elastic-services.table.turnoffDate'), description: translation.get('notavalue'), width: 4, maxLength: 9 * 4 },\n                                                                                        {\n                                                                                            name: translation.get('elastic-services.table.description'),\n                                                                                            description: c.descintshort || translation.get('notavalue'),\n                                                                                            width: 12,\n                                                                                            maxLength: 9 * 12,\n                                                                                        },\n                                                                                    ]\n                                                                                    let customStyle= \".Quick-Link-Footer-Header {font-weight: 600; font-size: 1.2rem;}.Quick-Link-Footer-Body {display:flex;gap: 10px;width: 100%;}.Quick-Link {border: 1px solid #c5c7ca57;border-radius: 5px;margin-left: 0;padding: 0.3rem 0.5rem;text-wrap: nowrap;cursor: pointer;flex: 1;}.Quick-Link:hover {border: 1px solid $color-accent;}.Icon-Background {display: flex;align-items: center;justify-content: center;background-color: #1477a0;height: 30px;width: 30px;padding: 0.3rem;color: white;border-radius: 5px;}.Title {display: flex;align-items: center;}.Arrow {display: flex;align-items: center;color: #b61cc8;}\"\n                                                                                    let footer={\n                                                                                        tag:'b2w-customer-360-quick-link',\n                                                                                        args:{\n                                                                                            options: {\n                                                                                                dataFrame: {\n                                                                                                    tabs: [\n                                                                                                        { tabId: 'fatture', icon: 'products', translationKey: 'vistaFatture' },\n                                                                                                        { tabId: 'letture', icon: 'document', translationKey: 'vistaLetture' },\n                                                                                                    ],\n                                                                                                    concatenate: false,\n                                                                                                },\n                                                                                            },\n                                                                                            seeAll: false,\n                                                                                            title: \"Quick Link\"\n                                                                                        }\n                                                                                    }\n                                                                                    return {tag: 'b2w-c360-card-holder', widgetAttrs: {columns_payload:columns_payload, body:body, customStyle:customStyle, footer:footer}}\n                                                                            })}\n                                                                            /*<b2w-c360-card-holder\n                                                                                footer={{\n                                                                                    tag: 'div',\n\n                                                                                    args: '',\n                                                                                }}\n                                                                            ></b2w-c360-card-holder>*/\n                                                                            /*return responses['Services_Power_Status'].map(status => {\n                                                                                return {tag:'b2w-card', widgetAttrs:{ name:status.assetstatus, description:status.count}, class:'col-md-6'}\n                                                                            })*/\n                                                                        ",
+                                    "postProcessing": "\n                                                                            let resultingCommodities = {};\n                                                                            Object.keys(value).forEach(source => {\n                                                                                value[source].forEach(commodity => {\n                                                                                    //initialize the storage if it doesn't exist\n                                                                                    if (resultingCommodities[commodity.commodity] === undefined) resultingCommodities[commodity.commodity] = {};\n                                                                                    //aggregate the commodities\n                                                                                    resultingCommodities[commodity.commodity]['response'] =\n                                                                                        resultingCommodities[commodity.commodity]['response'] === undefined ? [commodity] : [...resultingCommodities[commodity.commodity]['response'], commodity];\n                                                                                });\n                                                                            });\n                                                                            processed['service_mappings'] = {\n                                                                                power:{icon: 'light', inactives:['Ceased']},\n                                                                                gas:{icon: 'gas', inactives:['Activating','Ceased']},\n                                                                                pdr:{icon: 'gas', inactives:['Activating','Ceased']},\n                                                                                fiber:{icon: 'wifi', inactives:['Ceased']},\n                                                                            }\n                                                                            processed['status_map'] = {\n                                                                                    Active: { icon: 'success', color: '#12805c' },\n                                                                                    Attivo: { icon: 'success', color: '#12805c' },\n                                                                                    Activating: { icon: 'borderradiusfull', color: '#ff9227' },\n                                                                                    \"In Corso\": { icon: 'borderradiusfull', color: '#ff9227' },\n                                                                                    Ceased: { icon: 'minuscircle', color: '#d91936' },\n                                                                                    Cessato: { icon: 'minuscircle', color: '#d91936' },\n                                                                            }\n                                                                            processed['resultingCommodities'] = resultingCommodities;\n                                                                            const event = new Event(\"goToPath\")\n                                                                            processed['quick_link'] = {\n                                                                                fatture: (path)=>{\n                                                                                    window.addEventListener(\"goToPath\", (path) => {}, false)\n                                                                                    window.dispatchEvent(event)\n                                                                                }\n                                                                            }                                                                        "
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "eventCallbacks": {
+                        "tabClicked": "\n                                                    const urlParams = new URLSearchParams(window.location.search);\n                                                    switch(event.detail.tab){\n                                                        case 'power':\n                                                            window.history.pushState({'commodity':'power'}, 'C360', '?commodity=power');\n\n                                                            internalState['filter_api'] = [\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Power_Status',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'distinct_fields', value: 'assetstatus' },\n                                                                        { key: 'decorated_fields', value: 'assetstatus&activationdate&assetprevstatus' },\n                                                                        { key: 'query', value: 'commodity=power'}\n                                                                    ],\n                                                                },\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Power_Payment',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'distinct_fields', value: 'mainmopid' },\n                                                                        { key: 'decorated_fields', value: 'mainmopid&mainmoptype&mainmoptypelabel' },\n                                                                        { key: 'query', value: 'commodity=power'}\n                                                                    ],\n                                                                },\n                                                            ]\n                                                            internalState['table_api'] = [\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Power_Full',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'query', value: 'commodity=power'}\n                                                                    ],\n                                                                },\n                                                            ]\n                                                            internalState['tab_path'] = 'power'\n                                                            internalState['columns_payload'] = [\n                                                                { flex: '0.1', class: 'Icon' },\n                                                                {\n                                                                    class: 'Service',\n                                                                    col_text: translation.get('elastic-services.columns.commodity').toUpperCase(),\n                                                                    flex: '0.3',\n                                                                    separator: true,\n                                                                },\n                                                                { class: 'POD', col_text: translation.get('elastic-services.columns.pod').toUpperCase(), flex: '0.3', separator: true },\n                                                                { class: 'Address', col_text: translation.get('elastic-services.columns.address').toUpperCase(), flex: '1', separator: true },\n                                                                {\n                                                                    class: 'Status',\n                                                                    col_text: translation.get('elastic-services.columns.status').toUpperCase(),\n                                                                    flex: '0.3',\n                                                                },\n                                                            ]\n                                                            internalState['table_refresh'] = !internalState['table_refresh']\n                                                            internalState['filter_refresh'] = !internalState['filter_refresh']\n                                                            break;\n                                                        case 'gas':\n                                                            window.history.pushState({'commodity':'gas'}, 'C360', '?commodity=gas');\n\n                                                            internalState['filter_api'] = [\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Gas_Status',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'distinct_fields', value: 'assetstatus' },\n                                                                        { key: 'decorated_fields', value: 'assetstatus&activationdate&assetprevstatus' },\n                                                                        { key: 'query', value: 'commodity=gas'}\n                                                                    ],\n                                                                },\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Gas_Payment',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'distinct_fields', value: 'mainmopid' },\n                                                                        { key: 'decorated_fields', value: 'mainmopid&mainmoptype&mainmoptypelabel' },\n                                                                        { key: 'query', value: 'commodity=gas'}\n                                                                    ],\n                                                                },\n                                                            ]\n                                                            internalState['table_api'] = [\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Gas_Full',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'query', value: 'commodity=gas'}\n                                                                    ],\n                                                                },\n                                                            ]\n                                                            internalState['columns_payload'] = [\n                                                                { flex: '0.1', class: 'Icon' },\n                                                                {\n                                                                    class: 'Service',\n                                                                    col_text: translation.get('elastic-services.columns.commodity').toUpperCase(),\n                                                                    flex: '0.3',\n                                                                    separator: true,\n                                                                },\n                                                                { class: 'POD', col_text: translation.get('elastic-services.columns.pod').toUpperCase(), flex: '0.3', separator: true },\n                                                                { class: 'Address', col_text: translation.get('elastic-services.columns.address').toUpperCase(), flex: '1', separator: true },\n                                                                {\n                                                                    class: 'Status',\n                                                                    col_text: translation.get('elastic-services.columns.status').toUpperCase(),\n                                                                    flex: '0.3',\n                                                                },\n                                                            ]\n                                                            internalState['tab_path'] = 'gas'\n                                                            internalState['table_refresh'] = !internalState['table_refresh']\n                                                            internalState['filter_refresh'] = !internalState['filter_refresh']\n                                                            break;\n                                                        case 'pdr':\n                                                            window.history.pushState({'commodity':'pdr'}, 'C360', '?commodity=pdr');\n\n                                                            internalState['filter_api'] =[\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_PDR_Status',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'distinct_fields', value: 'assetstatus' },\n                                                                        { key: 'decorated_fields', value: 'assetstatus&activationdate&assetprevstatus' },\n                                                                        { key: 'query', value: 'commodity=pdr'}\n                                                                    ],\n                                                                },\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_PDR_Payment',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'distinct_fields', value: 'mainmopid' },\n                                                                        { key: 'decorated_fields', value: 'mainmopid&mainmoptype&mainmoptypelabel' },\n                                                                        { key: 'query', value: 'commodity=pdr'}\n                                                                    ],\n                                                                },\n                                                            ]\n                                                            internalState['table_api'] = [\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_PDR_Full',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'query', value: 'commodity=pdr'}\n                                                                    ],\n                                                                },\n                                                            ]\n                                                            internalState['columns_payload'] = [\n                                                                { flex: '0.1', class: 'Icon' },\n                                                                {\n                                                                    class: 'Service',\n                                                                    col_text: translation.get('elastic-services.columns.commodity').toUpperCase(),\n                                                                    flex: '0.3',\n                                                                    separator: true,\n                                                                },\n                                                                { class: 'POD', col_text: translation.get('elastic-services.columns.pod').toUpperCase(), flex: '0.3', separator: true },\n                                                                { class: 'Address', col_text: translation.get('elastic-services.columns.address').toUpperCase(), flex: '1', separator: true },\n                                                                {\n                                                                    class: 'Status',\n                                                                    col_text: translation.get('elastic-services.columns.status').toUpperCase(),\n                                                                    flex: '0.3',\n                                                                },\n                                                            ]\n                                                            internalState['tab_path'] = 'pdr'\n                                                            internalState['table_refresh'] = !internalState['table_refresh']\n                                                            internalState['filter_refresh'] = !internalState['filter_refresh']\n                                                            break;\n                                                        case 'fiber':\n                                                            window.history.pushState({'commodity':'fiber'}, 'C360', '?commodity=fiber');\n\n                                                            internalState['filter_api'] = [\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Fiber_Status',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'distinct_fields', value: 'assetstatus' },\n                                                                        { key: 'decorated_fields', value: 'assetstatus&activationdate&assetprevstatus' },\n                                                                        { key: 'query', value: 'commodity=fiber'}\n                                                                    ],\n                                                                },\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Fiber_Payment',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'distinct_fields', value: 'mainmopid' },\n                                                                        { key: 'decorated_fields', value: 'mainmopid&mainmoptype&mainmoptypelabel' },\n                                                                        { key: 'query', value: 'commodity=fiber'}\n                                                                    ],\n                                                                },\n                                                            ]\n                                                            internalState['table_api'] = [\n                                                                {\n                                                                    label: 'Power',\n                                                                    id: 'Services_Fiber_Full',\n                                                                    method: 'GET',\n                                                                    url: '/asset_distinct',\n                                                                    parameters: [\n                                                                        { key: 'account_code', value: 'return userId', type:'function' },\n                                                                        { key: 'query', value: 'commodity=fiber'}\n                                                                    ],\n                                                                },\n                                                            ]\n                                                            internalState['columns_payload'] = [\n                                                                { flex: '0.1', class: 'Icon' },\n                                                                {\n                                                                    class: 'Service',\n                                                                    col_text: translation.get('elastic-services.columns.commodity').toUpperCase(),\n                                                                    flex: '0.3',\n                                                                    separator: true,\n                                                                },\n                                                                { class: 'POD', col_text: translation.get('elastic-services.columns.pod').toUpperCase(), flex: '0.3', separator: true },\n                                                                { class: 'Address', col_text: translation.get('elastic-services.columns.address').toUpperCase(), flex: '1', separator: true },\n                                                                {\n                                                                    class: 'Status',\n                                                                    col_text: translation.get('elastic-services.columns.status').toUpperCase(),\n                                                                    flex: '0.3',\n                                                                },\n                                                            ]\n                                                            internalState['tab_path'] = 'fiber'\n                                                            internalState['table_refresh'] = !internalState['table_refresh']\n                                                            internalState['filter_refresh'] = !internalState['filter_refresh']\n                                                            break;\n                                                    }",
+                        "filterEvent": "\n                                                    console.log(\"filterEvent\", event.detail, internalState)\n                                                "
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "translations": {
+    "it_IT": {
+      "Address": {
+        "label": "Indirizzi"
+      },
+      "b2w-customer-360-anagraphic": {
+        "tags": {
+          "consumer": "Consumer",
+          "business": "Business"
+        },
+        "fields": {
+          "user_sequence": "Codice Cliente",
+          "vat": "CF/P.Iva",
+          "acquisition_channel": "Canale Di Acquisizione",
+          "business_type": "Forma Giuridica",
+          "activation_type": "Tipo Attivazione",
+          "activation_date": "Data Attivazione",
+          "email": "Email",
+          "pec_email": "PEC",
+          "phone": "Telefono",
+          "mobile": "Cellulare",
+          "website": "Sito Web"
+        }
+      },
+      "b2w-customer-360-quick-link": {
+        "vistaLetture": "Vista Letture",
+        "vistaFatture": "Vista Fatture"
+      },
+      "b2w-customer-360-details-registry": {
+        "fields": {
+          "business_name": "Ragione Sociale + Forma Giuridica",
+          "country": "Nazione Sede Legale",
+          "sede_legale": "Sede Legale",
+          "fiscal_code": "Codice Fiscale",
+          "phone": "Telefono",
+          "mobile": "Cellulare",
+          "email": "E-Mail",
+          "pec_email": "PEC",
+          "activation_date": "Cliente da",
+          "create_date": "Creato il",
+          "status": "Stato cliente",
+          "severity_index": "Churn risk",
+          "category": "Categoria",
+          "user_sequence": "Codice Cliente",
+          "golden_key": "Codice MDM",
+          "ateco_category_ids": "Codice Ateco",
+          "vat": "P.IVA",
+          "pec_email_infocamere": "PEC Infocamere",
+          "pa_pec_email": "PEC Pubblica Amministrazione",
+          "insurance_service": "Mercato",
+          "no_risk": "Nessun Rischio",
+          "name": "Nome + Cognome",
+          "country_individual": "Nazionalitá",
+          "sede_legale_individual": "Residenza",
+          "birth_date": "Data di nascita"
+        },
+        "extra": {
+          "billing": "Indirizzi",
+          "invoicing_address_id": "Nome indirizzo"
+        }
+      },
+      "b2w-customer-360-details-contacts": {
+        "fields": {
+          "email": "E-Mail",
+          "mobile": "Cellulare",
+          "areaWeb": "AREA WEB"
+        }
+      },
+      "b2w-customer-360-details-interactions": {
+        "filter": {
+          "state": "Stato",
+          "sorting": {
+            "label": "Ordina Per",
+            "create_date": {
+              "desc": "Data di creazione più recente"
+            }
+          }
+        },
+        "table": {
+          "type": "Tipo",
+          "user_id": "Assegnato a",
+          "channel": "Canale",
+          "create_date": "Creata il",
+          "close_date": "Data chiusura",
+          "state": "Stato",
+          "cases": "Cases"
+        }
+      },
+      "b2w-customer-360-details-case": {
+        "filter": {
+          "stage_id": "Stato",
+          "active_phase": "Fase Attiva",
+          "sorting": {
+            "label": "Ordina Per",
+            "create_date": {
+              "desc": "Data di creazione più recente"
+            }
+          }
+        },
+        "cards": {
+          "parent_case_id": "Codice Case padre",
+          "create_date": "Data Apertura",
+          "write_date": "Data Ultima Modifica",
+          "close_date": "Data Chiusura",
+          "interaction": "Interaction",
+          "partner_id": "Contatto",
+          "channel": "Canale",
+          "user_id_processing_date": "Assegnazione del Case con data",
+          "type": "Tipo",
+          "subtype": "Sottotipo",
+          "detail": "Dettaglio",
+          "origin": "Provenienza",
+          "triplet_active_phase_id": "Fase Attiva",
+          "note": "Note sulla Fase Attiva",
+          "symple_interaction_id": "Interaction",
+          "description": "Descrizione",
+          "footerHTML": "<span>Aperto il: <b>{open}</b> | Ultima Modifica: <b>{modified}</b> | Chiuso: <b>{closed}</b>"
+        }
+      },
+      "elastic-services": {
+        "filter": {
+          "title": "Filtra Forniture",
+          "description": "Clicca su una tipologia per filtrare le forniture",
+          "tabs": {
+            "commodity": {
+              "power": "Luce",
+              "fiber": "Fibra",
+              "gas": "Gas",
+              "pdr": "PDR",
+              "emob": "Emobility"
+            },
+            "top-text": "Attivi ({nCommodities})",
+            "bottom-text": "Disattivi ({nCommodities})"
+          },
+          "fields": {
+            "status": "Status",
+            "paymentmethod": "Metodo di Pagamento"
+          }
+        },
+        "columns": {
+          "commodity": "Servizio",
+          "pod": "POD",
+          "address": "Indirizzo",
+          "status": "Stato"
+        },
+        "table": {
+          "names": {
+            "power": "Luce",
+            "gas": "Gas",
+            "pdr": "PDR",
+            "fiber": "Fibra",
+            "emobility": "Emobility"
+          },
+          "podcode": "POD/PDR",
+          "prcode": "Codice Pr",
+          "activationDate": "Data inizio fornitura",
+          "endDate": "Data fine fornitura",
+          "contractName": "ID Agreement",
+          "agreementDate": "Data inizio agreement",
+          "ccq": "Esito CCQ",
+          "prodName": "Prodotto",
+          "category": "Listino",
+          "paymentMethod": "Metodo di Pagamento",
+          "nRepricing": "N° Repricing",
+          "conditionEndDate": "Data scadenza condizioni economiche",
+          "turnoffDate": "Termine Ripensamento",
+          "description": "Descrizione Prodotto",
+          "footer": {
+            "label": "Quick Link",
+            "fatture": "Vista Fatture",
+            "letture": "Vista Letture"
+          }
+        }
+      },
+      "labels": {
+        "b2w-customer-360-details-registry": "Anagrafica",
+        "b2w-customer-360-details-services": "Servizi",
+        "b2w-customer-360-details-contracts": "Contratti",
+        "b2w-customer-360-details-contacts": "Contatti",
+        "b2w-customer-360-details-case": "Case",
+        "b2w-customer-360-file-browser": "File Browser",
+        "customer-360-emob-ricarica": "Ricariche",
+        "b2w-customer-360-quick-link": "Quick Link",
+        "b2w-customer-360-next-best-action": "Next Best Action",
+        "b2w-customer-360-inevidenza": "In Evidenza",
+        "b2w-customer-360-campagne": "Campagne",
+        "b2w-customer-360-comunicazioni": "Comunicazioni",
+        "b2w-customer-360-details-interactions": "Interazioni"
+      }
+    }
+  }
+}
