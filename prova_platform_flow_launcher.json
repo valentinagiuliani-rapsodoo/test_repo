@@ -210,51 +210,6 @@
                   }
                 }
               ]
-            },
-            {
-              "tag": "b2w-customer-360-box",
-              "class": "col-md-4 col-xs-12",
-              "customStyle": "",
-              "height": "270px",
-              "options": {
-                "contained_widgets": {
-                  "static": [
-                    {
-                      "tag": "b2w-customer-360-elastic-renderer",
-                      "id": "FlowLauncher",
-                      "text": "Flow Launcher"
-                    }
-                  ],
-                  "default_selected": "FlowLauncher"
-                }
-              },
-              "widgets": [
-                {
-                  "name": "Flow Launcher",
-                  "id": "FlowLauncher",
-                  "tag": "b2w-customer-360-elastic-renderer",
-                  "customStyle": "",
-                  "options": {
-                    "dataFrame": {
-                      "widgets": [
-                        {
-                          "events": [],
-                          "tag": "process-builder-launcher",
-                          "args": {
-                            "w_id": "flowLauncher",
-                            "backend-url": "https://internal-dev-01.bit2win.cloud/api/processbuilder/v1",
-                            "labelfavorite": "Show Only Favorite",
-                            "auto-start-process": true,
-                            "processes": "\n                                                        [\n                                                            {\n                                                                \"process_name\":\"BSP_client\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false,\n                                                                \"id\":\"13\",\n                                                                \"model\":\"res.partner\",\n                                                                \"provider\":\"ODOO\"\n                                                            },\n                                                            {\n                                                                \"process_name\":\"BSP_contact\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"BSP_modify_client\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"BSP_modify_contact\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"NewContract\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"NewOrder\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false\n                                                            },\n                                                            {\n                                                                \"process_name\":\"BSP_sales_funnel\",\n                                                                \"instancekey\":false,\n                                                                \"hidden\":false,\n                                                                \"id\":\"13\",\n                                                                \"model\":\"res.partner\",\n                                                                \"provider\":\"ODOO\"\n                                                            }\n                                                        ]\n                                                        ",
-                            "language": "en-US",
-                            "class": "hydrated"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
             }
           ]
         },
